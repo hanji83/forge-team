@@ -1,4 +1,4 @@
-TeamSports::Application.routes.draw do
+ForgeTeam::Application.routes.draw do
   resources :users, only: [:create, :new, :show, :destroy]
   resource  :session, only: [:create, :destroy, :new]
   
