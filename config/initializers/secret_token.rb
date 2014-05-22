@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-TeamSports::Application.config.secret_key_base = '190d0b3ea970e66176b2a88c8de1d478b0fc2f3fae6b7504cf557747fb1a818a34ede869757a77b79610f40d8be1a5786799d53aeb8f571c3577c387688dbb0d'
+TeamSports::Application.config.secret_key_base = 'c72bd84d6316143c8d47c98eb2926f7ea7860ce0674f4f339db445dfa97a8dce21b8013b96528c52e378aa167526f2a33dadf2856ce1c2d5f6701968b4299489'

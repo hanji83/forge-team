@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.0' # Rails
-gem 'backbone-on-rails'
+gem 'backbone-on-rails' # Backbone for Rails
 gem 'bcrypt', '~> 3.1.7' # Allows for user authorization
 gem 'coffee-rails', '~> 4.0.0' # Use CoffeeScript for .js.coffee assets and views
 gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease.

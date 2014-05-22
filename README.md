@@ -19,7 +19,7 @@ Phase 1: Create Rails DB w/authentication and some basic team positions
 Goal with tasks:
   - Create user database with authentication X
     - Port over the New Auth Demo and adjust the files to allow for new gems X
-  - Create rankings for admin/team owner, captain, and members X
+  - Create rankings for admin/team owner, captain, and members
     - Update the User.rb with a migration of the table adding rank
   - Create user experience using Backbone
   
