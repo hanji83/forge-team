@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
   
+  has_one :stats, foreign_key: :user_id, class_name: "DBoatStat"
+  has_many :memberships, foreign_key: :user_id, class_name: "Membership"
+  has_many :teams, through: :memberships, source: :team
+  
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     user.try(:is_password?, password) ? user : nil

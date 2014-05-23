@@ -1,0 +1,3 @@
+class DBoatStatsController < ApplicationController
+  
+end

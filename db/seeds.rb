@@ -29,3 +29,4 @@ User.create!(username: "CJ", password: "cj12345", fname: "C", lname: "J")
 User.create!(username: "JF", password: "jf12345", fname: "J", lname: "F")
 User.create!(username: "WH", password: "wh12345", fname: "W", lname: "H")
 User.create!(username: "BS", password: "bs12345", fname: "B", lname: "S")
+

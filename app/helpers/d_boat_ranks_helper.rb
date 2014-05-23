@@ -1,0 +1,2 @@
+module DBoatRanksHelper
+end
