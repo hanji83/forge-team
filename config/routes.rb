@@ -1,9 +1,14 @@
 ForgeTeam::Application.routes.draw do
-  resources :users, only: [:create, :new, :show, :destroy]
-  resource  :session, only: [:create, :destroy, :new]
+  root to: 'static_pages#root'
   
-
-  root :to => "users#show"
+  namespace :api, defaults: { format: :json } do
+    resources :users, only: [:index, :show]
+    #resources :teams, only: [:index, :show, :update]
+    #resources :ranks, only: [:index, :show, :update]
+  end
+  
+  resources :users, only: [:new, :create, :destroy]
+  resource  :session, only: [:new, :create, :destroy]
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

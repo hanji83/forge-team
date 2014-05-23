@@ -20,11 +20,16 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  #including sprockets better errors
 end
 
 
 group :development, :test do
   gem 'debugger'
+end
+
+group :production do
+  gem 'rails_12factor' # 12Factor helps the application serve the files on Herokuapp
 end
 
 
