@@ -28,7 +28,7 @@
         <li>
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.fname %> <%= current_user.lname %><b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="<%=user_url current_user%>">Profile</a></li>
+          <li><a href="<%= api_user_url current_user%>">Profile</a></li>
           <li class="divider"></li>
           <li><%= link_to "Log Out", session_url, method: :delete %></li>
 

@@ -5,22 +5,30 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   },
   
   routes: {
-    "":        "show"
+    "":                 "showUser"
+    "teams/new":        "createTeam"
   },
   
-  show: function(id) {
+  showUser: function(id) {
     var that = this;
     var userView = new ForgeTeam.Views.UserShow( { model: this.user })
-    // this._getUser(id, function (user) {
-    //   var userView = new ForgeTeam.Views.UserShow({
-    //     model: user
-    //   });
-    // 
-    //   that._swapView(userView);
-    // });
-    
     this._swapView(userView);
   },
+  
+  
+  _swapView: function(view) {
+    this._currentView && this._currentView.remove();
+    this._currentView = view;
+    this.$rootEl.html(view.render().$el);
+  }
+  
+  // this._getUser(id, function (user) {
+  //   var userView = new ForgeTeam.Views.UserShow({
+  //     model: user
+  //   });
+  // 
+  //   that._swapView(userView);
+  // });
     
   // _getUser: function (id, callback) {
   //   var that = this;
@@ -40,10 +48,4 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   //     callback(user);
   //   }
   // },
-  
-  _swapView: function(view) {
-    this._currentView && this._currentView.remove();
-    this._currentView = view;
-    this.$rootEl.html(view.render().$el);
-  }
 });

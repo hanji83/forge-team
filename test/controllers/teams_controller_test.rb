@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DBoatRankTest < ActiveSupport::TestCase
+class TeamsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

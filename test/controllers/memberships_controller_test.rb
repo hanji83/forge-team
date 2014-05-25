@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DBoatStatsControllerTest < ActionController::TestCase
+class MembershipsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

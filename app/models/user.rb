@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
   
-  has_one :stats, foreign_key: :user_id, class_name: "DBoatStat"
   has_many :memberships, foreign_key: :user_id, class_name: "Membership"
   has_many :teams, through: :memberships, source: :team
   
