@@ -16,12 +16,13 @@ module Api
     end
     
     def show
-      @memberships = Membership.find(params[:id])
+      @membership = Membership.find(params[:id])
       
       if @membership
         render json: @membership
       else
         render json: @membership.errors.full_messages, status: 422
+      end
     end
     
     def update
@@ -31,6 +32,7 @@ module Api
         render json: @membership
       else
         render json: @membership.errors.full_messages, status: 422
+      end
     end
     
     private

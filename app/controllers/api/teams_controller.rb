@@ -7,10 +7,11 @@ module Api
     end
     
     def show
+      @user = current_user
       @team = Team.find(params[:id])
       
       if @team
-        render json: @team
+        render :show
       else
         render json: @team.errors.full_messages, status: 422
       end

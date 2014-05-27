@@ -1,20 +1,23 @@
-<header>
+
   <h1 align="center"><%= current_user.fname %> <%= current_user.lname %></h1>
+
+<div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-sm-3">
       <p><button type="button" class="btn btn-link btn-lg btn-block" id="manage-team">Manage Team</button></p>
 
-      <p><button type="button" class="btn btn-link btn-lg btn-block" id="create-team">Create Team</button></p>
+      <p><a href="#/teams/new"><button type="button" class="btn btn-link btn-lg btn-block" id="create-team">Create Team</button></a></p>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-sm-9">
       <div id="content" class="container">
       </div>
     </div>
   </div>
+</div>
 
 <script>
-// window.userId = <%= current_user.id %>
+window.userId = <%= current_user.id %>
   $(function () {
   });
 </script>

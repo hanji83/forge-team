@@ -2,50 +2,41 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
     this.user = options.user;
+    this.users = options.users;
   },
   
   routes: {
-    "":                 "showUser"
-    "teams/new":        "createTeam"
+    "":                           "showUser",
+    "user/edit":                  "editUser",
+    "teams":                      "indexTeam",
+    "teams/new":                  "createTeam",
+    "teams/:id/edit":             "editTeam",
+    "teams/:id":                  "showTeam",
+    "teams/:id/manage":           "manageTeam"
   },
   
-  showUser: function(id) {
-    var that = this;
-    var userView = new ForgeTeam.Views.UserShow( { model: this.user })
-    this._swapView(userView);
+  showUser: function() {
+    
   },
   
+  showTeam: function(id) {
+    var team = ForgeTeam.Collections.teams.getOrFetch(id);
+    var teamShow = new ForgeTeam.Views.showTeam({ 
+      model: team
+    });
+    this._swapView(teamShow);
+  },
+  
+  createTeam: function() {
+    var teamView = new ForgeTeam.Views.newTeam(
+      { collection: ForgeTeam.Collections.teams }
+    );
+    this._swapView(teamView);
+  },
   
   _swapView: function(view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
   }
-  
-  // this._getUser(id, function (user) {
-  //   var userView = new ForgeTeam.Views.UserShow({
-  //     model: user
-  //   });
-  // 
-  //   that._swapView(userView);
-  // });
-    
-  // _getUser: function (id, callback) {
-  //   var that = this;
-  //   var user = this.users.get(id);
-  //   
-  //   if (!user) {
-  //     user = new ForgeTeam.Models.User( { id: id });
-  //     user.collection = this.users;
-  //     user.fetch( {
-  //       success: function () {
-  //         that.users.add(user);
-  //         callback(user);
-  //       }
-  //     });
-  //   }
-  //   else {
-  //     callback(user);
-  //   }
-  // },
 });

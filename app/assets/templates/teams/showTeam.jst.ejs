@@ -1,0 +1,22 @@
+<h3><%= team.get('teamname') %></h3>
+<table class="table table-bordered table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% count = 1 %>
+  <% members.forEach(function(member) { %>
+    <tr>
+      <td><%= count %></td>
+      <% count += 1 %>
+      <td><%= member.escape('fname') %></td>
+      <td><%= member.escape('lname') %></td>
+    </tr>
+  <% }); %>
+  </tbody>
+</table>
+

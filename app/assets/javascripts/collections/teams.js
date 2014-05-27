@@ -12,3 +12,5 @@ ForgeTeam.Collections.Teams = Backbone.Collection.extend({
     }
   }
 });
+
+ForgeTeam.Collections.teams = new ForgeTeam.Collections.Teams();
