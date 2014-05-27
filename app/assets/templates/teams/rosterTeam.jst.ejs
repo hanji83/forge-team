@@ -1,0 +1,60 @@
+<h3>Team: <%= team.get('teamname') %></h3><br>
+Instruction: Click a name to add the user to the other list.
+
+  <div class="row-fluid">
+    <div class="col-xs-4">
+      <div >
+        <table id="nonmembers" class="table table-bordered table-condensed table-hover">
+          <thead>
+            <h4>Non-Members</h4>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% count = 1 %>
+          <% nonMembers.forEach(function(nonMember) { %>
+            <tr data-user-id = <%= nonMember.id %>>
+              <td><%= count %></td>
+              <% count += 1 %>
+              <td><%= nonMember.escape('fname') %></td>
+              <td><%= nonMember.escape('lname') %></td>
+            </tr>
+          <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-xs-4">
+      <div >
+        <table
+          id="members" 
+          class="table table-bordered table-condensed table-hover">
+          <thead>
+            <h4>Members</h4>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% count = 1 %>
+          <% members.forEach(function(member) { %>
+            <tr data-user-id = <%= member.id %>>
+              <td><%= count %></td>
+              <% count += 1 %>
+              <td><%= member.escape('fname') %></td>
+              <td><%= member.escape('lname') %></td>
+            </tr>
+          <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+  </div>
+</div>

@@ -22,21 +22,21 @@ ForgeTeam.Models.Team = Backbone.Model.extend({
     return this._memberships;
   },
   
-  users: function () {
+  members: function () {
     return this.memberships().map(function (member) {
       return ForgeTeam.Collections.users.get(member.get("user_id"));
     });
   },
   
-  availableUsers: function () {
-    var members = this.memberships();
-    var availableMembers = new ForgeTeam.Collections.Users([], {});
-    _.each(availMembers, function(member) {
-      if (!_.contains(this.users, member)) {
-        availableMembers.push(member);
+  possibleUsers: function () {
+    var members = this.members();
+    var nonMembers = new ForgeTeam.Collections.Users([], {});
+    ForgeTeam.Collections.users.each(function(user) {
+      //debugger
+      if (!_.contains(members, user)) {
+        nonMembers.push(user);
       }
     });
-    
-    return availableMembers;
+    return nonMembers;
   }
 });

@@ -1,9 +1,8 @@
 ForgeTeam.Views.UserShow = Backbone.View.extend({
-  template: JST['users/show'],
+  template: JST['users/showUser'],
   
   render: function(id) {
-    debugger
-    var user = new ForgeTeam.Collections.teams.getOrFetch(id);
+    var user = ForgeTeam.Collections.users.findWhere({id: userId});
     var renderedContent = this.template({ user: user });
     this.$el.html(renderedContent);
     return this;
