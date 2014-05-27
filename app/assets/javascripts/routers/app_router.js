@@ -41,10 +41,10 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   
   lineUpTeam: function(id) {
     var team = ForgeTeam.Collections.teams.getOrFetch(id);
-    var teamLineUpView = new ForgeTeam.Views.TeamLineUp({
+    var teamBoatView = new ForgeTeam.Views.TeamBoatView({
       model: team
     });
-    this._swapView(teamLineUpView);
+    this._swapView(teamBoatView);
   },
   
   _swapView: function(view) {

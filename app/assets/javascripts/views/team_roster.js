@@ -38,6 +38,7 @@ ForgeTeam.Views.TeamRoster = Backbone.View.extend({
     var membership = this.model.memberships().findWhere({
       user_id: userId
     });
+    
     membership.destroy({
       success: function() {
         that.model.memberships().remove(membership);

@@ -1,13 +1,13 @@
-ForgeTeam.Views.TeamLineUp = Backbone.View.extend({
+ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.memberships(), "add destroy sync", this.render);
   },
   
-  template: JST["teams/teamLineUp"],
+  template: JST["teams/teamBoat"],
   
   events: {
-    "click ":     "swapMembers",
+    "click .boat-member":     "swapMembers",
   },
   
   render: function () {
@@ -19,7 +19,20 @@ ForgeTeam.Views.TeamLineUp = Backbone.View.extend({
     return this;
   },
   
-  swapMembers: function() {
-    
+  swapMembers: function(event) {
+    var $seat = $(event.currentTarget);
+    var position = $seat.data('position');
+    if (!this.from_position){
+      this.from_position = position;
+    } else {
+      var to_position = position;  
+      //now we definitely have both a from position and a to position
+      
+      //update the membership for the person in the from_position
+      
+      //at the end we need to reset our from position
+      this.from_position = undefined;
+    }
+    // var member_id = $member.data('member-id');
   }
 });
