@@ -1,10 +1,10 @@
-ForgeTeam.Views.rosterTeam = Backbone.View.extend({
+ForgeTeam.Views.TeamRoster = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.memberships(), "add destroy sync", this.render);
   },
   
-  template: JST["teams/rosterTeam"],
+  template: JST["teams/teamRoster"],
   
   events: {
     "click #nonmembers tbody tr":     "addMember",
@@ -25,7 +25,7 @@ ForgeTeam.Views.rosterTeam = Backbone.View.extend({
     var userId = $(event.currentTarget).data("user-id");
     this.model.memberships().create({
       user_id: userId, 
-      team_id: this.model.id, 
+      team_id: this.model.id,
       rank: 'admin'
     }, {
       success: function(response) {}
