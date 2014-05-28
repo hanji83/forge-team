@@ -1,11 +1,6 @@
 ForgeTeam.Models.Team = Backbone.Model.extend({
   urlRoot: 'api/teams',
   
-  // memberships: function() {
-  //   var teamMemberships = new ForgeTeam.Collections.TeamMemberships();
-  //   return teamMemberships;
-  // },
-  
   parse: function (response) {
     if (response.memberships) {
       this.memberships().set(response.memberships , { parse: true });

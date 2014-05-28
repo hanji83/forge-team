@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522000425) do
+ActiveRecord::Schema.define(version: 20140528001741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(version: 20140522000425) do
     t.string   "rank",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "seat"
   end
 
   add_index "memberships", ["rank"], name: "index_memberships_on_rank", using: :btree
+  add_index "memberships", ["seat"], name: "index_memberships_on_seat", using: :btree
   add_index "memberships", ["team_id"], name: "index_memberships_on_team_id", using: :btree
   add_index "memberships", ["user_id", "team_id"], name: "index_memberships_on_user_id_and_team_id", unique: true, using: :btree
   add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree

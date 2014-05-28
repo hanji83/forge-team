@@ -19,20 +19,24 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
     return this;
   },
   
+  
+  
   swapMembers: function(event) {
     var $seat = $(event.currentTarget);
     var position = $seat.data('position');
     if (!this.from_position){
       this.from_position = position;
     } else {
-      var to_position = position;  
-      //now we definitely have both a from position and a to position
+      var to_position = position;  //now have from position and to position
       
       //update the membership for the person in the from_position
+      team.members().findWhere()
       
-      //at the end we need to reset our from position
+      //need to reset our from position
       this.from_position = undefined;
     }
+    
+    
     // var member_id = $member.data('member-id');
   }
 });
