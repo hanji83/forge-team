@@ -1,7 +1,7 @@
 module Api
   class MembershipsController < ApiController
     def create
-      @membership = Membership.new(member_params)
+      @membership = Membership.new(membership_params)
       
       if @membership.save
         render json: @membership

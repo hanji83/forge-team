@@ -10,6 +10,11 @@
         margin-left: auto;
         margin-right: auto;
       }
+      
+      .nopadding {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
 
       .boat {
         background-image: url(/assets/boat_seating.png);
@@ -107,12 +112,15 @@
     <div class="row-fluid">
       <h3><%= team.get('teamname') %>: Line-Up</h3>
   
-      <div class="col-xs-8">
-      <p>Instructions: Click on a name to select a member. Click on the list of members to remove the member from the boat or click another seat on the boat to move the member to that seat.</p>
-  
-      <p>Boat Status: boatStatus </p>
+      <div class="row-fluid">
+      <p>Instructions:</p>
+      <ul>
+        <li>To move from roster to boat: Click a name on the roster and click a seat.</li>
+        <li>To move from boat to roster: Click a seat and click the HEADING of the roster.</li>
+        <li>To swap seats: Click one seat and then click another.</li>
+      </ul>
 
-        <div class="col-xs-4">
+        <div class="col-xs-4 nopadding">
           <table
            id="roster"
            class="table table-bordered table-condensed table-hover">
@@ -126,7 +134,7 @@
             </thead>
             <tbody>
             <% count = 1 %>
-            <% offBoatMembers.forEach(function(member) { %>
+            <% offBoat.forEach(function(member) { %>
               <tr data-user-id = <%= member.id %>>
                 <td><%= count %></td>
                 <% count += 1 %>
@@ -138,7 +146,7 @@
           </table>
         </div>
   
-        <div class="col-xs-4">
+        <div class="col-xs-3 nopadding">
           <h4>Boat Seating</h4>
       
           <div class="boat">
@@ -169,7 +177,22 @@
             <div class="seat center" data-seat-num="21"></div>
           </div>
         </div>
-  
+        
+        <div class="col-xs-2 nopadding">
+          <h4>Status:</H4>
+          <div id="weight_status">
+            Weight Distribution
+            <ul class="weight">
+              <li>Placeholder</li>
+            </ul>
+            
+            Paddling Off-side
+            <ul class="side">
+              <li>Placeholder</li>
+            </ul>
+          </div>
+        </div>
+        
       </div>
     </div>
   </body>

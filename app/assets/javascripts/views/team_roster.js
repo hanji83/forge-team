@@ -26,7 +26,8 @@ ForgeTeam.Views.TeamRoster = Backbone.View.extend({
     this.model.memberships().create({
       user_id: userId, 
       team_id: this.model.id,
-      rank: 'admin'
+      rank: 'admin',
+      seat: null
     }, {
       success: function(response) {}
     });
