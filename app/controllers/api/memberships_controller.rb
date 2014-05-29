@@ -26,7 +26,7 @@ module Api
     end
     
     def update
-      @membership = Membership.find_by_user_id_and_team_id(params[current_user.id, :team_id])
+      @membership = Membership.find(params[:id])
       
       if @membership.update_attributes(membership_params)
         render json: @membership
@@ -46,8 +46,8 @@ module Api
     end
     
     private
-    def member_params
-      params.require(:membership).permit(:user_id, :team_id, :rank)
+    def membership_params
+      params.require(:membership).permit(:user_id, :team_id, :rank, :seat)
     end
   end
 end

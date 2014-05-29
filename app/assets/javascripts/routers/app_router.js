@@ -10,8 +10,8 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
     "user/edit":                  "editUser",
     "teams":                      "indexTeam",
     "teams/new":                  "createTeam",
-    "teams/:id/lineup":           "lineUpTeam",
     "teams/:id":                  "rosterTeam",
+    "teams/:id/lineup":           "lineUpTeam"
   },
   
   showUser: function() {

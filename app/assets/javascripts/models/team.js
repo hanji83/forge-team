@@ -27,7 +27,6 @@ ForgeTeam.Models.Team = Backbone.Model.extend({
     var members = this.members();
     var nonMembers = new ForgeTeam.Collections.Users([], {});
     ForgeTeam.Collections.users.each(function(user) {
-      //debugger
       if (!_.contains(members, user)) {
         nonMembers.push(user);
       }
