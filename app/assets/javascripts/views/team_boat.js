@@ -231,16 +231,32 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
   
   offSideCheck: function() {
     var that = this;
+    var strongflag = true;
+    var emptyFlag = true;
     
     this.model.members().forEach(function (member) {
       var membership = that.model.memberships().findWhere({user_id: member.get('id')});
       if ((member.get("side") === "left") && (membership.get("seat") % 2 === 0 && membership.get("seat") !== null)) {
         $('#offside').append('<li>' + member.get("fname") + " " + member.get("lname") + '</li>');
+        strongflag = false;
+        emptyFlag = false;
       }
-      else if ((member.get("side") === "right") && (membership.get("seat") % 2 === 1 && membership.get("seat") !== null)) {
+      else if ((member.get("side") === "right") && (membership.get("seat") % 2 === 1 && membership.get("seat") !== null && (membership.get("seat") !== 21))) {
         $('#offside').append('<li>' + member.get("fname") + " " + member.get("lname") + '</li>');
+        strongflag = false;
+        emptyFlag = false;
+      }
+      else if (((member.get("side") === "left") && (membership.get("seat") % 2 === 1)) || ((member.get("side") === "right") && (membership.get("seat") % 2 === 0))) {
+        emptyFlag = false;
       }
     });
+    
+    if (strongflag === true && emptyFlag === true) {
+      $('#offside').append("Not applicable");
+    }
+    else if (strongflag === true && emptyFlag === false) {
+      $('#offside').append("All paddlers are paddling on their strong sides.");
+    }
   },
   
   swapMembers: function(from_position, to_position) {
