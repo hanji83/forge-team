@@ -1,115 +1,4 @@
-<html>
-  <head>
-    <style>
-      body * {
-        box-sizing: border-box;
-      }
-      
-      .center-block() {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      
-      .nopadding {
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-
-      .boat {
-        background-image: url(/assets/boat_seating.png);
-        background-size: 100% auto;
-        width: 202px;
-        height: 1100px;
-        border: thin solid blue;
-        position: relative;
-        .center-block();
-      }
-
-      .seat {
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
-        border: thin solid red;
-        position: absolute;
-        margin-left: -25px;
-      }
-      .seat:hover {
-        background: rgba(255, 0, 0, .8);
-      }
-      .seat.center {
-        left: 50%;
-      }
-      .seat.left {
-        left: 25%;
-      }
-      .seat.right {
-        left: 75%;
-      }
-
-      .seat[data-seat-num="0"] {
-        top: 40px;
-      }
-      .seat[data-seat-num="21"] {
-        bottom: 150px;
-      }
-
-      .seat[data-seat-num="1"]{
-        top: 110px;
-        left: 35%;
-      } 
-      .seat[data-seat-num="2"] {
-        top: 110px;
-        left: 65%;
-      }
-      .seat[data-seat-num="3"] {
-        top: 177px;
-        left: 30%;
-      }
-      .seat[data-seat-num="4"] {
-        top: 177px;
-        left: 70%;
-      }
-      .seat[data-seat-num="5"], .seat[data-seat-num="6"] {
-        top: 240px;
-      }
-      .seat[data-seat-num="7"], .seat[data-seat-num="8"] {
-        top: 340px;
-      }
-      .seat[data-seat-num="9"], .seat[data-seat-num="10"] {
-        top: 410px;
-      }
-      .seat[data-seat-num="11"], .seat[data-seat-num="12"] {
-        top: 480px;
-      }
-      .seat[data-seat-num="13"], .seat[data-seat-num="14"] {
-        top: 550px;
-      }
-      .seat[data-seat-num="15"], .seat[data-seat-num="16"] {
-        top: 620px;
-      }
-      .seat[data-seat-num="17"], .seat[data-seat-num="18"] {
-        top: 690px;
-      }
-      .seat[data-seat-num="19"], .seat[data-seat-num="20"] {
-        top: 780px;
-      }
-      
-      .seat.seat-0 {
-        position: absolute;
-        left: 50%;
-        top: 40px;
-        margin-left: -25px;
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
-        border: thin solid red;
-      }
-
-    </style>
-  </head>
-  <body>
-    <div class="row-fluid">
+<div class="row-fluid">
       <h3><%= team.get('teamname') %>: Line-Up</h3>
   
       <div class="row-fluid">
@@ -146,7 +35,7 @@
           </table>
         </div>
   
-        <div class="col-xs-3 nopadding">
+        <div class="col-xs-5 nopadding">
           <h4>Boat Seating</h4>
       
           <div class="boat">
@@ -196,5 +85,3 @@
         
       </div>
     </div>
-  </body>
-</html>

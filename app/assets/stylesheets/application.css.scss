@@ -15,7 +15,213 @@
  */
 
 @import "bootstrap";
-* {
-  border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
+.my-navbar {
+  border-radius: 0;
+  -moz-border-radius: 0;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.fix{
+  position: fixed;
+  bottom: 0px;
+  right: 0%;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.boat {
+  background-image: url(/assets/boat_seating_layout.png);
+  background-size: 100% auto;
+  width: 350px;
+  height: 700px;
+//  border: thin solid blue;
+  position: relative;
+}
+
+.seat {
+  width: 45px;
+  height: 45px;
+  border-radius: 22.5px;
+//  border: thin solid red;
+  position: absolute;
+  margin-left: -25px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 45px;
+}
+.seat:hover {
+  background: rgba(0, 128, 0, .8);
+}
+.seat.center {
+  left: 50%;
+}
+.seat.left {
+  left: 39%;
+}
+.seat.right {
+  left: 61%;
+}
+
+.seat[data-seat-num="0"] {
+  top: 76px;
+}
+.seat[data-seat-num="21"] {
+  bottom: 36px;
+  left: 50%;
+}
+
+.seat[data-seat-num="1"]{
+  top: 120px;
+  left: 42%;
+} 
+.seat[data-seat-num="2"] {
+  top: 120px;
+  left: 57%;
+}
+.seat[data-seat-num="3"] {
+  top: 170px;
+  left: 39%;
+}
+.seat[data-seat-num="4"] {
+  top: 170px;
+  left: 60%;
+}
+.seat[data-seat-num="19"] {
+  left: 42%;
+}
+.seat[data-seat-num="20"] {
+  left: 57%;
+}
+.seat[data-seat-num="5"], .seat[data-seat-num="6"] {
+  top: 220px;
+}
+.seat[data-seat-num="7"], .seat[data-seat-num="8"] {
+  top: 272px;
+}
+.seat[data-seat-num="9"], .seat[data-seat-num="10"] {
+  top: 322px;
+}
+.seat[data-seat-num="11"], .seat[data-seat-num="12"] {
+  top: 375px;
+}
+.seat[data-seat-num="13"], .seat[data-seat-num="14"] {
+  top: 425px;
+}
+.seat[data-seat-num="15"], .seat[data-seat-num="16"] {
+  top: 477px;
+}
+.seat[data-seat-num="17"], .seat[data-seat-num="18"] {
+  top: 527px;
+}
+.seat[data-seat-num="19"], .seat[data-seat-num="20"] {
+  top: 577px;
+}
+
+.seat.seat-0 {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+//  border: thin solid red;
+}
+
+body {
+    background-color: #fff;
+}
+update.btn 
+{
+ outline:0;
+ border:none;
+ border-top:none;
+ border-bottom:none;
+ border-left:none;
+ border-right:none;
+ box-shadow:inset 2px -3px rgba(0,0,0,0.15);
+ color: #70E300;
+ background-color: #000;
+}
+.btn:focus
+{
+ outline:0;
+ -webkit-outline:0;
+ -moz-outline:0;
+}
+
+update.btn:hover
+{
+  color: #70E300;
+  background-color: #000;
+}
+.fullscreen_bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+/*          background-image: url('http://cleancanvas.herokuapp.com/img/backgrounds/color-splash.jpg');*/
+  background-repeat:repeat;
+}
+.form-signin {
+  max-width: 280px;
+  padding: 15px;
+  margin: 0 auto;
+    margin-top:50px;
+}
+.form-signin .form-signin-heading, .form-signin {
+  margin-bottom: 10px;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: none;
+  border-left-style: solid;
+  border-color: #000;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-style: none;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-color: rgb(0,0,0);
+  border-top:1px solid rgba(0,0,0,0.08);
+}
+.form-signin-heading {
+  color: #000;
+  text-align: center;
+/*          text-shadow: 0 2px 2px rgba(0,0,0,0.5);*/
 }
