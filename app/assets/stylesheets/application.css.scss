@@ -24,10 +24,14 @@ body * {
   box-sizing: border-box;
 }
 
-.fix{
+.fix {
   position: fixed;
   bottom: 0px;
   right: 0%;
+}
+
+.opaque {
+  opacity:0.8;
 }
 
 .center-block {
