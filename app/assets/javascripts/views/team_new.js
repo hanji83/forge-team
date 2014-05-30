@@ -1,4 +1,4 @@
-ForgeTeam.Views.newTeam = Backbone.View.extend({
+ForgeTeam.Views.TeamNew = Backbone.View.extend({
   template: JST["teams/teamNew"],
   
   events: { "submit form": "submit" },

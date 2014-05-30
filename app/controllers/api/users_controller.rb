@@ -16,7 +16,7 @@ module Api
     end
     
     def update
-      @user = current_user.find(params[:id])
+      @user = User.find(params[:id])
       
       if @user.update_attributes(user_params)
         render json: @user
@@ -27,7 +27,7 @@ module Api
     
     private
     def user_params
-      params.require(:user).permit(:username, :password)
+      params.require(:user).permit(:username, :password, :weight, :height, :side)
     end
     
   end

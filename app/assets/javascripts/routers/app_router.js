@@ -15,17 +15,28 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   },
   
   showUser: function() {
-    var userView = new ForgeTeam.Views.UserShow({});
+    var userView = new ForgeTeam.Views.UserShow();
+    this._swapView(userView);
+  },
+  
+  editUser: function() {
+    var userView = new ForgeTeam.Views.UserEdit();
     this._swapView(userView);
   },
   
   indexTeam: function() {
-    var teamsView = new ForgeTeam.Views.TeamIndex({});
-    this._swapView(teamsView);
+    ForgeTeam.Collections.teams.fetch({
+      success: function() {
+      }
+    });
+    var teamsView = new ForgeTeam.Views.TeamIndex({
+      collection: ForgeTeam.Collections.teams
+    });
+    this._swapView(teamsView);  
   },
   
   createTeam: function() {
-    var teamView = new ForgeTeam.Views.newTeam({ 
+    var teamView = new ForgeTeam.Views.TeamNew({ 
       collection: ForgeTeam.Collections.teams 
     });
     this._swapView(teamView);
@@ -33,9 +44,11 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   
   rosterTeam: function(id) {
     var team = ForgeTeam.Collections.teams.getOrFetch(id);
+    
     var teamRosterView = new ForgeTeam.Views.TeamRoster({ 
       model: team
     });
+    team.fetch();
     this._swapView(teamRosterView);
   },
   

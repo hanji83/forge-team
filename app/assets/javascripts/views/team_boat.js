@@ -9,7 +9,7 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
   events: {
     "click #roster tbody tr":         "clickRoster",
     "click #roster thead tr":         "removeFromBoat",
-    "click .boat div":                    "clickBoat"
+    "click .boat div":                "clickBoat"
   },
   
   render: function () {
@@ -236,7 +236,7 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
     
     this.model.members().forEach(function (member) {
       var membership = that.model.memberships().findWhere({user_id: member.get('id')});
-      if ((member.get("side") === "left") && (membership.get("seat") % 2 === 0 && membership.get("seat") !== null)) {
+      if ((member.get("side") === "left") && (membership.get("seat") % 2 === 0 && membership.get("seat") !== null && (membership.get("seat") !== 0))) {
         $('#offside').append('<li>' + member.get("fname") + " " + member.get("lname") + '</li>');
         strongflag = false;
         emptyFlag = false;
@@ -246,7 +246,7 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
         strongflag = false;
         emptyFlag = false;
       }
-      else if (((member.get("side") === "left") && (membership.get("seat") % 2 === 1)) || ((member.get("side") === "right") && (membership.get("seat") % 2 === 0))) {
+      else if (((member.get("side") === "left") && (membership.get("seat") % 2 === 1) && (membership.get("seat") !== null) && (membership.get("seat") !== 21)) || ((member.get("side") === "right") && (membership.get("seat") % 2 === 0) && (membership.get("seat") !== null) && (membership.get("seat") !== 0))) {
         emptyFlag = false;
       }
     });

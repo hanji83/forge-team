@@ -1,0 +1,12 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3>List of Dragonboat Team</h3>
+    <ul>
+    <% teams.forEach(function(team) { %>
+      <li><a href="/#/teams/<%= team.get('id') %>"><%= team.get("teamname") %></a></li>
+    <% }); %>
+    </ul>
+  </body>
+</html>

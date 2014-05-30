@@ -1,16 +1,11 @@
 <html>
   <head>
     <style>
-      .nopadding {
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-      
       body {
           background-color: #fff;
   
         }
-        signin.btn 
+        update.btn 
         {
          outline:0;
          border:none;
@@ -29,7 +24,7 @@
          -moz-outline:0;
         }
         
-        signin.btn:hover
+        update.btn:hover
         {
           color: #70E300;
           background-color: #000;
@@ -95,53 +90,21 @@
     </style>
   </head>
   <body>
-    <% if current_user %>
-    <h1 align="center"><%= current_user.fname %> <%= current_user.lname %></h1>
-    
+
     <div class="container">
       <div class="row">
-        <div class="col-sm-3 nopadding">
-          <p><a href="#/teams"><button type="button" class="btn btn-link btn-lg btn-block" id="manage-team">Manage Team</button></p>
-
-          <p><a href="#/teams/new"><button type="button" class="btn btn-link btn-lg btn-block" id="create-team">Create Team</button></a></p>
-        </div>
-    <% else %>
-    
-    <div id="fullscreen_bg" class="fullscreen_bg"/>
-
-    <div class="container">
-
-    	<form class="form-signin" action="<%= session_url %>" method="post">
-        <input
-           name="authenticity_token"
-           type="hidden"
-           value="<%= form_authenticity_token %>">
-           <h2 class="form-signin-heading text-muted">Sign In</h2>
-    		<input type="text" class="form-control" placeholder="Username" required="" autofocus="" name="user[username]">
-    		<input type="password" class="form-control" placeholder="Password" required="" name="user[password]">
-    		<button class="signin.btn btn-lg btn-primary btn-block" type="submit">
-    			Sign In
-    		</button>
-        New User? <%= link_to "Sign Up", new_session_url, method: :get %><br>
-        Trying Out? Username: Guest / Password: guest123
-    	</form>
-
-    </div>
-    
-    <% end %>
-        <div class="col-sm-9">
-          <div id="content" class="container">
-          </div>
+        <div class="col-xs-4">
+          <form>
+        		<h3 class="form-signin-heading text-muted">Update Paddler Stats</h3>
+        		<input type="text" class="form-control" placeholder=<%= user.escape('weight')%> required="" autofocus="" name="user[weight]" id="weight">
+        		<input type="text" class="form-control" placeholder=<%= user.escape('height')%> required="" name="user[height]" id="height">
+            <input type="text" class="form-control" placeholder=<%= user.escape('side')%> required="" name="user[side]" id="side">
+        		<button class="btn update.btn btn-lg btn-primary btn-block" type="submit">
+            Update
+        		</button>
+        	</form>
         </div>
       </div>
     </div>
   </body>
 </html>
-
-<script>
-  <% if current_user %>
-    window.userId = <%= current_user.id %>
-  <% end %>
-  $(function () {
-  });
-</script>

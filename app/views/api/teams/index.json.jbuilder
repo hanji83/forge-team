@@ -1,3 +1,3 @@
 json.array! @teams do |json, team|
-  json.(team, :teamname, :id, :sports_id)
+  json.(team, :teamname, :id)
 end
