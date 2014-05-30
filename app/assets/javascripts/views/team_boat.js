@@ -9,7 +9,7 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
   events: {
     "click #roster tbody tr":         "clickRoster",
     "click #roster thead tr":         "removeFromBoat",
-    "click .boat":                    "clickBoat"
+    "click .boat div":                    "clickBoat"
   },
   
   render: function () {
@@ -22,6 +22,7 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
     this.fillInNames();
     this.weightDistributionFrontBack();
     this.weightDistributionLeftRight();
+    this.offSideCheck();
     return this;
   },
   
@@ -189,13 +190,13 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
     });
     
     if (frontWeight > backWeight) {
-      $('#weightfb').text("The boat weight is front-biased.")
+      $('#weightfb').text("Front-biased by " + (frontWeight - backWeight) + "lbs.")
     }
     else if(frontWeight < backWeight) {
-      $('#weightfb').text("The boat weight is rear-biased.")
+      $('#weightfb').text("Back-biased by " + (backWeight - frontWeight) + "lbs.")
     }
     else {
-      $('#weightfb').text("The boat weight is balanced with respect to front and back.")
+      $('#weightfb').text("Balanced with respect to front and back.")
     }
   },
   
@@ -218,18 +219,28 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
     // debugger
     
     if (leftWeight > rightWeight) {
-      $('#weightlr').text("The boat weight is left-biased.")
+      $('#weightlr').text("Left-biased by " + (leftWeight - rightWeight) + "lbs.")
     }
     else if(leftWeight < rightWeight) {
-      $('#weightlr').text("The boat weight is right-biased.")
+      $('#weightlr').text("Right-biased by " + (rightWeight - leftWeight) + "lbs.")
     }
     else {
-      $('#weightlr').text("The boat weight is balanced with respect to left and right.")
+      $('#weightlr').text("Balanced with respect to left and right.")
     }
   },
   
-  sideCheck: function() {
+  offSideCheck: function() {
+    var that = this;
     
+    this.model.members().forEach(function (member) {
+      var membership = that.model.memberships().findWhere({user_id: member.get('id')});
+      if ((member.get("side") === "left") && (membership.get("seat") % 2 === 0 && membership.get("seat") !== null)) {
+        $('#offside').append('<li>' + member.get("fname") + " " + member.get("lname") + '</li>');
+      }
+      else if ((member.get("side") === "right") && (membership.get("seat") % 2 === 1 && membership.get("seat") !== null)) {
+        $('#offside').append('<li>' + member.get("fname") + " " + member.get("lname") + '</li>');
+      }
+    });
   },
   
   swapMembers: function(from_position, to_position) {
