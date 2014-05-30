@@ -20,6 +20,8 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
     this.fillInNames();
+    this.weightDistributionFrontBack();
+    this.weightDistributionLeftRight();
     return this;
   },
   
@@ -170,11 +172,60 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
   },
   
   weightDistributionFrontBack: function() {
+    var that = this;
+    var frontWeight = 0;
+    var backWeight = 0;
     
+    this.model.members().forEach(function (member) {
+      var membership = that.model.memberships().findWhere({user_id: member.get('id')});
+      var memberWeight = member.get('weight');
+      
+      if (membership.get('seat') < 11 && membership.get('seat') !== null) {
+        frontWeight += memberWeight
+      }
+      else if (membership.get('seat') !== null) {
+        backWeight += memberWeight
+      }
+    });
+    
+    if (frontWeight > backWeight) {
+      $('#weightfb').text("The boat weight is front-biased.")
+    }
+    else if(frontWeight < backWeight) {
+      $('#weightfb').text("The boat weight is rear-biased.")
+    }
+    else {
+      $('#weightfb').text("The boat weight is balanced with respect to front and back.")
+    }
   },
   
   weightDistributionLeftRight: function() {
+    var that = this;
+    var leftWeight = 0;
+    var rightWeight = 0;
     
+    this.model.members().forEach(function (member) {
+      var membership = that.model.memberships().findWhere({user_id: member.get('id')});
+      var memberWeight = member.get('weight');
+      
+      if ((membership.get('seat') % 2 == 0) && membership.get('seat') !== null) {
+        rightWeight += memberWeight
+      }
+      else if (membership.get('seat') !== null) {
+        leftWeight += memberWeight
+      }
+    });
+    // debugger
+    
+    if (leftWeight > rightWeight) {
+      $('#weightlr').text("The boat weight is left-biased.")
+    }
+    else if(leftWeight < rightWeight) {
+      $('#weightlr').text("The boat weight is right-biased.")
+    }
+    else {
+      $('#weightlr').text("The boat weight is balanced with respect to left and right.")
+    }
   },
   
   sideCheck: function() {
