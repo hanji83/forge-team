@@ -94,17 +94,15 @@
         }
     </style>
   </head>
-  <body>
+  <body id="bkimage" class="opaque">
     <% if current_user %>
     <h1 align="center"><%= current_user.fname %> <%= current_user.lname %></h1>
     
     <div class="container">
+
       <div id="content">
         <div class="row">
           <div class="col-xs-12 nopadding">
-            <p><a href="#/teams/new"><button type="button" class="btn btn-link btn-lg btn-block" id="create-team">Create Team</button></a></p>
-          
-            <p><a href="#/teams"><button type="button" class="btn btn-link btn-lg btn-block" id="manage-team">Manage Team</button></a></p>          
           </div>
     <% else %>
     

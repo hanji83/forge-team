@@ -21,11 +21,11 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
       success: function() {
       }
     });
-    var teamsView = new ForgeTeam.Views.TeamIndex({
+    var view = new ForgeTeam.Views.UserShow({
       collection: ForgeTeam.Collections.teams
     });
     
-    this._swapView(teamsView);
+    this._swapView(view);
   },
   
   editUser: function() {

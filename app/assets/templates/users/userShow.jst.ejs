@@ -2,7 +2,7 @@
   <head>
   </head>
   <body>
-    <div class="row-fluid">
+    <div class="row-fluid center">
       <br>
       <br>
       <p>Welcome to ForgeTeam, where you can manage your Dragonboat Team.</p>
@@ -19,9 +19,9 @@
       <h3>List of Dragonboat Team</h3>
       <ul>
       <% teams.forEach(function(team) { %>
-        <li><a href="/#/teams/<%= team.get('id') %>"><%= team.get("teamname") %></a></li>
+        <p><a href="/#/teams/<%= team.get('id') %>"><%= team.get("teamname") %></a></li>
       <% }); %>
-      </ul>
+      </p>
     </div>
   </body>
 </html>
