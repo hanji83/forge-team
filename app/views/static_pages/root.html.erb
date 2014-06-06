@@ -99,12 +99,13 @@
     <h1 align="center"><%= current_user.fname %> <%= current_user.lname %></h1>
     
     <div class="container">
-      <div class="row">
-        <div class="col-sm-2 nopadding">
-          <p><a href="#/teams"><button type="button" class="btn btn-link btn-lg btn-block" id="manage-team">Manage Team</button></p>
-
-          <p><a href="#/teams/new"><button type="button" class="btn btn-link btn-lg btn-block" id="create-team">Create Team</button></a></p>
-        </div>
+      <div id="content">
+        <div class="row">
+          <div class="col-xs-12 nopadding">
+            <p><a href="#/teams/new"><button type="button" class="btn btn-link btn-lg btn-block" id="create-team">Create Team</button></a></p>
+          
+            <p><a href="#/teams"><button type="button" class="btn btn-link btn-lg btn-block" id="manage-team">Manage Team</button></a></p>          
+          </div>
     <% else %>
     
     <div id="fullscreen_bg" class="fullscreen_bg"/>
@@ -129,8 +130,8 @@
     </div>
     
     <% end %>
-        <div class="col-sm-9">
-          <div id="content">
+    </div>
+    </div>
           </div>
         </div>
       </div>

@@ -1,15 +1,18 @@
 <div class="row-fluid">
+    <div class="center">
       <h3><%= team.get('teamname') %>: Line-Up</h3>
+      <p><a href="#/team">Boat Roster</a>
+    </div>
   
       <div class="row-fluid">
-      <p>Instructions:</p>
+      <!-- <p>Instructions:</p>
       <ul>
         <li>To move from roster to boat: Click a name on the roster and click a seat.</li>
         <li>To move from boat to roster: Click a seat and click the HEADING of the roster.</li>
         <li>To swap seats: Click one seat and then click another.</li>
-      </ul>
+      </ul> -->
 
-        <div class="col-xs-4 nopadding">
+        <div class="col-xs-4 nopadding center">
           <table
            id="roster"
            class="table table-bordered table-condensed table-hover">
@@ -35,7 +38,7 @@
           </table>
         </div>
   
-        <div class="col-xs-5 nopadding">
+        <div class="col-xs-4 nopadding center">
           <h4>Boat Seating</h4>
       
           <div class="boat">
@@ -67,8 +70,11 @@
           </div>
         </div>
         
-        <div class="col-xs-2 nopadding">
-          <h4>Status:</H4>
+        <div class="col-xs-4 nopadding">
+          <div class="center">
+            <h4>Status:</H4>
+          </div>
+          
           <div id="weight_status">
             Weight Distribution
             <ul>

@@ -8,10 +8,12 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "":                           "showUser",
     "user/edit":                  "editUser",
-    "teams":                      "indexTeam",
-    "teams/new":                  "createTeam",
-    "teams/:id":                  "rosterTeam",
-    "teams/:id/lineup":           "lineUpTeam"
+    // "teams":                      "indexTeam",
+    // "teams/new":                  "createTeam",
+    // "teams/:id":                  "rosterTeam",
+    "team":                       "rosterTeam",
+    // "teams/:id/lineup":           "lineUpTeam"
+    "team/lineup":                "lineUpTeam"
   },
   
   showUser: function() {
@@ -43,6 +45,7 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   },
   
   rosterTeam: function(id) {
+    id = 2;
     var team = ForgeTeam.Collections.teams.getOrFetch(id);
     
     var teamRosterView = new ForgeTeam.Views.TeamRoster({ 
@@ -53,6 +56,7 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   },
   
   lineUpTeam: function(id) {
+    id = 2;
     var team = ForgeTeam.Collections.teams.getOrFetch(id);
     var teamBoatView = new ForgeTeam.Views.TeamBoatView({
       model: team
