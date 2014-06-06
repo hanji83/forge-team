@@ -24,6 +24,16 @@ body * {
   box-sizing: border-box;
 }
 
+.image {
+  background-image: url(/assets/bang_dboat_sfti.jpeg);
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed;
+}
+
 .center {
   text-align: center;
 }
@@ -35,7 +45,7 @@ body * {
 }
 
 .opaque {
-  opacity:0.8;
+  opacity:0.2;
 }
 
 .center-block {
