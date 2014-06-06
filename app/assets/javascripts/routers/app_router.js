@@ -57,6 +57,7 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
     var teamBoatView = new ForgeTeam.Views.TeamBoatView({
       model: team
     });
+    team.fetch();
     this._swapView(teamBoatView);
   },
   

@@ -49,8 +49,10 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
     } 
     else if (this.seat !== undefined && !this.memberIDToMove) {
       //if we have already clicked on a seat, 
-      //we must be removing someone from the boat
+      //we might be removing someone from the boat
       //and swapping with someone onto the roster
+      // or just swapping into the roster
+      debugger
       this.memberIDToMove = $member.data("user-id");
       this.removeAndSwap(this.seat);
       this._resetAllStates();
@@ -63,19 +65,22 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
     var seat = $seat.data("seat-num");
     
     if(this.memberIDToMove && !this.seat){ // works
+      // debugger
       //we have a member to move, we must be adding to the boat
       this.addMemberToBoat(this.memberIDToMove, seat);
       this.memberIDToMove = undefined;
     }
     else if((this.seat !== undefined) && !this.memberIDToMove) {
-      //we already clicked on the boat, we know this because this.seat has value
+      // debugger
+
       var from = this.seat;
       var to = seat;
       this.swapMembers(from, to);
       this.seat = undefined;
     }
     else if (!this.seat && !this.memberIDToMove){
-      this.seat = seat;
+      // debugger
+      this.seat = seat
     }
     else {
       alert('how the hell did we get here? please refresh the page');
@@ -101,7 +106,10 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
       user_id: this.memberIDToMove
     });
     
-    membershipToRemove.save({seat: null}, {patch: true});
+    if (membershipToRemove !== undefined) {
+      membershipToRemove.save({seat: null}, {patch: true});
+    }
+
     membershipToAdd.save({seat: this.seat}, {patch: true});
     this._resetAllStates();
   },
@@ -269,12 +277,14 @@ ForgeTeam.Views.TeamBoatView = Backbone.View.extend({
       seat: to_position
     });
     
-    membership1.save({ 
-      user_id: membership1.get('user_id'), 
-      team_id: this.model.id, 
-      seat: to_position, 
-      rank: "admin" 
-    });
+    if (membership1) {
+      membership1.save({ 
+        user_id: membership1.get('user_id'), 
+        team_id: this.model.id, 
+        seat: to_position, 
+        rank: "admin"
+      });
+    }
     
     if(membership2) {
       membership2.save({ 
