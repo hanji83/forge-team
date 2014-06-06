@@ -2,11 +2,28 @@
   <head>
   </head>
   <body>
-    <h3>List of Dragonboat Team</h3>
-    <ul>
-    <% teams.forEach(function(team) { %>
-      <li><a href="/#/teams/<%= team.get('id') %>"><%= team.get("teamname") %></a></li>
-    <% }); %>
-    </ul>
+    <div class="row-fluid">
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-8 center">
+        <br>
+        <br>
+        <p>Welcome to ForgeTeam, where you can manage your Dragonboat Team.</p>
+        <p>Create a team or choose one from the list of available teams.</p>
+        <h2>Team Formation</h2>
+        <form>
+          <label>Team Name
+            <input type="text" name="team[teamname]">
+          </label>
+  
+          <input type="submit" value="Create Team">
+        </form>
+        <br>
+        <h3>List of Dragonboat Team</h3>
+        <% teams.forEach(function(team) { %>
+          <p><a href="/#/teams/<%= team.get('id') %>"><%= team.get("teamname") %></a></p>
+        <% }); %>
+      </div>
+    </div>
   </body>
 </html>
