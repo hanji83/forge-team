@@ -116,7 +116,8 @@
     			Sign In
     		</button>
         New User? <%= link_to "Sign Up", new_user_url, method: :get %>
-        Trying Out? Username: Guest / Password: guest123
+        <br>
+        Trying Out? <%= link_to "Sign Up", sessions_login_guest_url, method: :post %>
     	</form>
 
     </div>

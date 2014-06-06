@@ -5,6 +5,23 @@ class SessionsController < ApplicationController
   def new
   end
   
+  def login_guest
+    params[:user] = {:username => "Guest", :password => "guest123"}    
+    
+    @user = User.find_by_credentials(
+      user_params[:username],
+      user_params[:password]
+    )
+    
+    if @user
+      sign_in(@user)
+      redirect_to root_url
+    else
+      flash.now[:errors] = ["Guest user account has issues"]
+      render :new
+    end
+  end
+  
   def create
     @user = User.find_by_credentials(
       user_params[:username],
