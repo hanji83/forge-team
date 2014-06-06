@@ -8,6 +8,8 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "":                           "showUser",
     "user/edit":                  "editUser",
+    "about":                      "about",
+    "contact":                    "contact",
     // "teams":                      "indexTeam",
     // "teams/new":                  "createTeam",
     // "teams/:id":                  "rosterTeam",
@@ -24,6 +26,16 @@ ForgeTeam.Routers.AppRouter = Backbone.Router.extend({
   editUser: function() {
     var userView = new ForgeTeam.Views.UserEdit();
     this._swapView(userView);
+  },
+  
+  about: function() {
+    var aboutView = new ForgeTeam.Views.UserAbout();
+    this._swapView(aboutView);
+  },
+  
+  contact: function() {
+    var contactView = new ForgeTeam.Views.UserContact();
+    this._swapView(contactView);
   },
   
   indexTeam: function() {
