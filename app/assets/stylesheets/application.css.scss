@@ -20,6 +20,26 @@
   -moz-border-radius: 0;
 }
 
+.navbar-inner {
+  background-color: #000; /* background color will be black for all browsers */
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+}
+
+a:link {
+COLOR: #000099;
+}
+a:visited {
+COLOR: #800080;
+}
+a:hover {
+COLOR: #FF0000;
+}
+a:active {
+COLOR: #00FF00;
+}
+
 body * {
   
   box-sizing: border-box;
